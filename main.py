@@ -1,3 +1,5 @@
+import uuid
+
 from langchain_aws import ChatBedrockConverse
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_core.chat_history import InMemoryChatMessageHistory
@@ -45,8 +47,9 @@ if __name__ == "__main__":
         "You are a helpful AI assistant with expertise in cloud computing. "
         "Provide clear, concise, and accurate answers."
     )
-    session_id = "session_1"
+    session_id = str(uuid.uuid4())
 
+    print(f"Session ID: {session_id}")
     print("Chat started (buffer memory active). Type 'quit' to exit.\n")
 
     while True:
